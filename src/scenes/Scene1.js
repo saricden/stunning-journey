@@ -42,14 +42,16 @@ export default class Scene1 extends Scene {
     const ls = this.state
     
     if (ls.cursors.left.isDown){
-      ls.hero.x -= gs.speed}
+      ls.hero.setVelocityX(-gs.speed)}
     if (ls.cursors.right.isDown){
-      ls.hero.x += gs.speed}
-    if (ls.cursors.up.isDown){
-      ls.hero.y -= gs.speed}
+      ls.hero.setVelocityX(gs.speed)}
+    if (!ls.cursors.right.isDown && !ls.cursors.left.isDown){
+          ls.hero.setVelocityX(0)}
+    if (ls.cursors.up.isDown && ls.hero.body.blocked.down){
+      ls.hero.setVelocityY(-gs.jumpForce)}
     if (ls.cursors.down.isDown){
-      ls.hero.y += gs.speed}
+      ls.hero.body.checkCollision.down = false}
+    else {
+      ls.hero.body.checkCollision.down = true}
   }
 }
-
-

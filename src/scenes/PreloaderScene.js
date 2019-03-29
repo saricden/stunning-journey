@@ -13,7 +13,8 @@ class PreloaderScene extends Scene {
   create() {
     this.scene.start(`scene-title`)
     this.game.state = {}
-    this.game.state.speed = 10
+    this.game.state.speed = 100
+    this.game.state.jumpForce = 500
   }
 }
 
