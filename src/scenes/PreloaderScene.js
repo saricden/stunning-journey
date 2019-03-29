@@ -11,7 +11,7 @@ class PreloaderScene extends Scene {
   }
 
   create() {
-    this.scene.start(`scene1`)
+    this.scene.start(`scene-title`)
   }
 }
 
