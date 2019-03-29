@@ -13,6 +13,9 @@ export default class Scene1 extends Scene {
     this.state = {}
     this.state.hero = this.add.sprite(50, 50, 'hero')
     this.state.cursors = this.input.keyboard.createCursorKeys();
+
+    // Follow the character
+    this.cameras.main.startFollow(this.state.hero);
   }
 
   update () {
