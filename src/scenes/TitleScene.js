@@ -30,6 +30,8 @@ class TitleScene extends Scene {
         const yOffset = (y * 100);
         const fruit = this.add.image(xOffset, yOffset, 'fruit');
         fruit.setAlpha(0.4);
+        fruit.setDepth(1);
+        fruit.rotSpeed = (Math.random() / 15);
         this.fruits = [
           ...this.fruits,
           fruit
@@ -37,13 +39,17 @@ class TitleScene extends Scene {
       }
     }
 
+    // Depths
+    this.title.setDepth(2);
+    this.playBtn.setDepth(3);
+
     this.playBtn.setInteractive();
     this.playBtn.on('pointerdown', this.playGame.bind(this));
   }
 
   update() {
     this.fruits.forEach((fruit) => {
-      fruit.setRotation(fruit.rotation + (25 * Math.random()));
+      fruit.setRotation(fruit.rotation + fruit.rotSpeed);
     });
   }
 
