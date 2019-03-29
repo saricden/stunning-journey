@@ -6,8 +6,8 @@ const canvas = document.getElementById('game-canvas');
 
 const config = {
   type: Phaser.WEBGL,
-  width: 400,
-  height: 300,
+  width: window.innerWidth,
+  height: window.innerHeight,
   canvas,
   physics: {
     default: 'arcade',
