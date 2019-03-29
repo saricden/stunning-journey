@@ -15,7 +15,10 @@ export default class Scene1 extends Scene {
     this.state.cursors = this.input.keyboard.createCursorKeys();
 
     // Follow the character
-    this.cameras.main.startFollow(this.state.hero);
+    const cam = this.cameras.main
+    cam.startFollow(this.state.hero);
+    cam.setDeadzone(200, 200)
+    
   }
 
   update () {
