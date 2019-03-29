@@ -12,7 +12,8 @@ class PreloaderScene extends Scene {
 
   create() {
     this.scene.start(`scene-title`)
-    this.state.speed = 1
+    this.game.state = {}
+    this.game.state.speed = 1
   }
 }
 
