@@ -7,7 +7,7 @@ export default class Scene1 extends Scene {
 
   create() {
   	console.log('creating Scene1')
-    
+    const hero = this.add.sprite(50, 50, 'hero') 
   }
 }
 

@@ -18,8 +18,8 @@ const config = {
     }
   },
   scene: [
-    Scene1,
-    PreloaderScene
+    PreloaderScene,
+    Scene1
   ]
 };
 
