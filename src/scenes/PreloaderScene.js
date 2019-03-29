@@ -12,7 +12,7 @@ class PreloaderScene extends Scene {
 
   create() {
     this.scene.start(`scene-title`)
-    this.game.state.cursors = this.input.keyboard.createCursorKeys();
+    this.state.speed = 1
   }
 }
 
