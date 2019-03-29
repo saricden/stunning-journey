@@ -34,24 +34,20 @@ export default class Scene1 extends Scene {
     const cam = this.cameras.main
     cam.startFollow(this.state.hero);
     cam.setDeadzone(200, 200)
-    
   }
 
   update () {
-    const gs = this.game.state
-    const ls = this.state
-    
-    if (ls.cursors.left.isDown){
-      ls.hero.setVelocityX(-gs.speed)}
-    if (ls.cursors.right.isDown){
-      ls.hero.setVelocityX(gs.speed)}
-    if (!ls.cursors.right.isDown && !ls.cursors.left.isDown){
-          ls.hero.setVelocityX(0)}
-    if (ls.cursors.up.isDown && ls.hero.body.blocked.down){
-      ls.hero.setVelocityY(-gs.jumpForce)}
-    if (ls.cursors.down.isDown){
-      ls.hero.body.checkCollision.down = false}
+    if (this.state.cursors.left.isDown){
+      this.state.hero.setVelocityX(-this.game.state.speed)}
+    if (this.state.cursors.right.isDown){
+      this.state.hero.setVelocityX(this.game.state.speed)}
+    if (!this.state.cursors.right.isDown && !this.state.cursors.left.isDown){
+          this.state.hero.setVelocityX(0)}
+    if (this.state.cursors.up.isDown && this.state.hero.body.blocked.down){
+      this.state.hero.setVelocityY(-this.game.state.jumpForce)}
+    if (this.state.cursors.down.isDown){
+      this.state.hero.body.checkCollision.down = false}
     else {
-      ls.hero.body.checkCollision.down = true}
+      this.state.hero.body.checkCollision.down = true}
   }
 }
