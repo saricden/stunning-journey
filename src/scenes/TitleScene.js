@@ -6,7 +6,7 @@ class TitleScene extends Scene {
   }
 
   create() {
-    this.title = this.add.text(0, 0, 'Stunning Journey', {
+    this.title = this.add.text(0, 0, '" Stunning Journey "', {
       fontFamily: 'Serif',
       fontSize: 42,
       color: '#FFF',

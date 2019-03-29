@@ -26,14 +26,46 @@ export default class Scene1 extends Scene {
       }
     }
 
+    // Add some fruits
+    this.fruitsArr = [];
+    for (let x = 100; x < 1000; x += 100) {
+      const fruit = this.physics.add.sprite(x, 0, 'fruit');
+      fruit.setScale(0.3);
+      this.fruitsArr = [
+        ...this.fruitsArr,
+        fruit
+      ];
+    }
+
+    this.fruits = this.physics.add.group(this.fruitsArr, {});
+
     // Map collider
     this.physics.add.collider(this.state.hero, this.bricks);
+    this.physics.add.collider(this.fruits, this.bricks);
+    this.physics.add.overlap(this.state.hero, this.fruits, this.collectFruit.bind(this));
 
 
     // Follow the character
     const cam = this.cameras.main
     cam.startFollow(this.state.hero);
     cam.setDeadzone(200, 200)
+
+    // Score config
+    this.score = 0;
+
+    // Score text box
+    this.scoreText = this.add.text(0, 0, '...', {
+      fontFamily: 'Sans Serif',
+      fontSize: 20,
+      padding: 10,
+      color: '#000'
+    });
+    this.scoreText.setScrollFactor(0);
+  }
+
+  collectFruit(hero, fruit) {
+    this.score += 10;
+    fruit.destroy();
   }
 
   update () {
@@ -49,5 +81,7 @@ export default class Scene1 extends Scene {
       this.state.hero.body.checkCollision.down = false}
     else {
       this.state.hero.body.checkCollision.down = true}
+
+    this.scoreText.setText('Score: '+this.score+'pts');
   }
 }
