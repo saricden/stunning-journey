@@ -8,6 +8,7 @@ class PreloaderScene extends Scene {
   preload() {
     this.load.image('hero', 'assets/crate.png');
     this.load.image('tile-brick', 'assets/tile-brick.png');
+    this.load.image('fruit', 'assets/fruit.png');
   }
 
   create() {
