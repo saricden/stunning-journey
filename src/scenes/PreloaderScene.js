@@ -5,8 +5,13 @@ class PreloaderScene extends Scene {
     super("scene-preloader");
   }
 
+  preload() {
+    this.load.image('hero', 'assets/crate.png');
+    this.load.image('tile-brick', 'assets/tile-brick.png');
+  }
+
   create() {
-    console.log('hooray! Gr8 success!');
+    
   }
 }
 
